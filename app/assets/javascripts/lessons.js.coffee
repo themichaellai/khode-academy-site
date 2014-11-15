@@ -1,3 +1,25 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+myCodeMirror = undefined
+window.onload = ->
+  myTextArea = document.getElementById("codeBox")
+  myCodeMirror = CodeMirror((elt) ->
+    myTextArea.parentNode.replaceChild elt, myTextArea
+    return
+  ,
+    value: window.boilerplate_code
+    theme: "solarized dark"
+    tabSize: 2
+    lineWrapping: false
+    lineNumbers: true
+  )
+  myCodeMirror.setSize 800, null
+  document.getElementById("printButton").onclick = ->
+    user_code = myCodeMirror.getValue()
+    [val, output] = RubyEngine.eval(user_code)
+    console.log val
+    console.log output if output
+    return
+
+  return
