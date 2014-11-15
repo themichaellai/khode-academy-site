@@ -1,0 +1,19 @@
+= simple_form_for lesson, html: {class: 'form-horizontal', role: :form} do |f|
+  .form-group
+    = f.label :title, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.input_field :title, size: 25
+
+  .form-group
+    = f.label :instructions, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.input_field :instructions, as: :text
+
+  .form-group
+    = f.label :boilerplate_code, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.input_field :boilerplate_code, as: :text
+
+  .form-group
+    .col-sm-10.col-sm-offset-2
+      = f.button :submit
