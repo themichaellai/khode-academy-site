@@ -1,6 +1,12 @@
 .row
   .col-sm-12
-    h1 Lessons
-    ul.lessons
-      - for lesson in @lessons
-        li= link_to lesson.title, lesson
+    .text-centered
+      h1.page-title Lessons
+    - @lessons.each_slice(3) do |slice|
+      .row
+        - slice.each do |lesson|
+          .col-sm-4
+            .lesson-box
+              a href=lesson_path(lesson)
+                h2= lesson.title
+                p= lesson.description

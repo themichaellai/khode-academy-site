@@ -1,0 +1,10 @@
+html
+  head
+    title Khode Academy
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    = render partial: 'partials/header'
+    .container
+      = yield
+    = javascript_include_tag 'application'
