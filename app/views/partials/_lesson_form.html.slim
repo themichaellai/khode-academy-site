@@ -5,6 +5,11 @@
       = f.input_field :title, size: 25, class: 'form-control'
 
   .form-group
+    = f.label :description, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.input_field :description, size: 25, class: 'form-control'
+
+  .form-group
     = f.label :lesson_text, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.input_field :lesson_text, class: 'form-control', as: :text

@@ -1,11 +1,28 @@
-// Place all the styles related to the lessons controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .lesson-explanation {
   overflow: scroll;
 
   .lesson-header {
     border-bottom: 1px solid rgba(0,0,0,0.15);
+  }
+}
+
+.lesson-box {
+  padding: 20px;
+  min-height: 100px;
+  h2 {
+    margin-top: 0px;
+    text-align: center;
+  }
+  a {
+    &:hover {
+      text-decoration: none
+    }
+  }
+  p {
+    text-align: center;
+    color: $gray-dark;
+  }
+  &:hover {
+    background-color: $bg-hover-color;
   }
 }

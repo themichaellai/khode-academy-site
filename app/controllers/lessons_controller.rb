@@ -24,6 +24,7 @@ class LessonsController < ApplicationController
   def lesson_params
     params.require(:lesson).permit(
       :title,
+      :description,
       :lesson_text,
       :instructions,
       :boilerplate_code
