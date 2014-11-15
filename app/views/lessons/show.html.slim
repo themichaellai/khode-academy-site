@@ -1,9 +1,11 @@
 .row
   .col-sm-2
-    h1= @lesson.title
-    .lesson-text
-      = markdown @lesson.lesson_text
-    .instructions
-      = markdown @lesson.instructions
-  .col-sm-10
-    = @lesson.boilerplate_code
+    .lesson-explanation
+      .lesson-header
+        h1= @lesson.title
+      .lesson-text
+        = markdown @lesson.lesson_text
+      .instructions
+        = markdown @lesson.instructions
+    .col-sm-10
+      = @lesson.boilerplate_code
