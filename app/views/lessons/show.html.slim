@@ -1,5 +1,9 @@
+= javascript_include_tag "lessons"
+- boil = raw @lesson.boilerplate_code
+javascript:
+  window.boilerplate_code = "#{escape_javascript boil}";
 .row
-  .col-sm-2
+  .col-sm-3
     .lesson-explanation
       .lesson-header
         h1= @lesson.title
@@ -7,5 +11,7 @@
         = markdown @lesson.lesson_text
       .instructions
         = markdown @lesson.instructions
-    .col-sm-10
-      = @lesson.boilerplate_code
+  .col-sm-9
+    .code-editor
+      textarea#codeBox
+    button#printButton Print
