@@ -1,0 +1,6 @@
+.row
+  .col-sm-12
+    h1 Lessons
+    ul.lessons
+      - for lesson in @lessons
+        li= link_to lesson.title, lesson
