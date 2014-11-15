@@ -2,18 +2,23 @@
   .form-group
     = f.label :title, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.input_field :title, size: 25
+      = f.input_field :title, size: 25, class: 'form-control'
+
+  .form-group
+    = f.label :lesson_text, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.input_field :lesson_text, class: 'form-control', as: :text
 
   .form-group
     = f.label :instructions, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.input_field :instructions, as: :text
+      = f.input_field :instructions, class: 'form-control', as: :text
 
   .form-group
     = f.label :boilerplate_code, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.input_field :boilerplate_code, as: :text
+      = f.input_field :boilerplate_code, as: :text, class: 'form-control'
 
   .form-group
     .col-sm-10.col-sm-offset-2
-      = f.button :submit
+      = f.button :submit, class: 'btn btn-primary'
