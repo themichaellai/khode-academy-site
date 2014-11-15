@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="theme/solarized.css">
     <script src="lib/codemirror.js"></script>
     <script src="mode/javascript/javascript.js"></script>
+    <script src="mode/ruby/ruby.js"></script>
 
     <script type="text/javascript">
+      var myCodeMirror;
       window.onload = function() {
         var myTextArea = document.getElementById("codeBox");
-        var myCodeMirror = CodeMirror(function(elt) {
+        myCodeMirror = CodeMirror(function(elt) {
             myTextArea.parentNode.replaceChild(elt, myTextArea);
           }, {
             value: "function() {\n  console.log(\"Hello, World!\");\n}",
@@ -24,7 +26,15 @@
           });
         myCodeMirror.setSize(800, null);
         
-        document.getElementById("button").onclick = function() {console.log(myCodeMirror.getValue())}
+        document.getElementById("printButton").onclick = function() {
+          console.log(myCodeMirror.getValue())
+        }
+
+        document.getElementById("modeSelect").onchange = function() {
+          theMode = document.getElementById("modeSelect").value;
+          console.log("new mode: "+theMode);
+          myCodeMirror.setOption("mode", theMode);
+        }
       }
     </script>
 
@@ -35,7 +45,11 @@
   <body>
     <textarea id="codeBox">
     </textarea>
-    <button id="button">Print</button>
+    <button id="printButton">Print</button>
+    <select id="modeSelect">
+      <option value="javascript">Javascript</option>
+      <option value="ruby">Ruby</option>
+    </select>
   </body>
 </html>
 
