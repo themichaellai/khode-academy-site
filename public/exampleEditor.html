@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="lib/codemirror.css">
+    <link rel="stylesheet" href="theme/solarized.css">
+    <script src="lib/codemirror.js"></script>
+    <script src="mode/javascript/javascript.js"></script>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        var myTextArea = document.getElementById("codeBox");
+        var myCodeMirror = CodeMirror(function(elt) {
+            myTextArea.parentNode.replaceChild(elt, myTextArea);
+          }, {
+            value: "function() {\n  console.log(\"Hello, World!\");\n}",
+            theme: "solarized dark",
+            tabSize: 2,
+            lineWrapping: false,
+            lineNumbers: true
+          });
+        myCodeMirror.setSize(800, null);
+        
+        document.getElementById("button").onclick = function() {console.log(myCodeMirror.getValue())}
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <textarea id="codeBox">
+    </textarea>
+    <button id="button">Print</button>
+  </body>
+</html>
+
