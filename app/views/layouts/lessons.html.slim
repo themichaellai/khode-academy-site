@@ -1,0 +1,16 @@
+html
+  head
+    title Khode Academy
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag '/lib/codemirror.css'
+    = stylesheet_link_tag '/theme/solarized.css'
+    = csrf_meta_tags
+  body
+    = render partial: 'partials/header'
+    .container
+      = yield
+    = javascript_include_tag '/lib/codemirror.js'
+    = javascript_include_tag '/mode/javascript/javascript.js'
+    = javascript_include_tag '/mode/ruby/ruby.js'
+    = javascript_include_tag '/ruby.js'
+    = javascript_include_tag 'lessons'

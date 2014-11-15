@@ -1,0 +1,16 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      = link_to "Khode Academy", root_path, class: 'navbar-brand'
+    ul.nav.navbar-nav
+      li
+        = link_to "Lessons", lessons_path
+    ul.nav.navbar-nav.navbar-right
+      li
+        - if user_signed_in?
+          - if current_user.name.empty?
+            = link_to current_user.email, '#'
+          - else
+            = link_to current_user.name, '#'
+        - else
+          = link_to "Sign In", new_user_session_path

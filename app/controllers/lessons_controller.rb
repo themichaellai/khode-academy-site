@@ -1,10 +1,13 @@
 class LessonsController < ApplicationController
+  layout 'application'
+
   def index
     @lessons = Lesson.all
   end
 
   def show
     @lesson = Lesson.find(params[:id])
+    render layout: 'lessons'
   end
 
   def create
