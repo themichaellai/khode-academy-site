@@ -2,24 +2,30 @@ html
 head
   title Khode Academy
   = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = stylesheet_link_tag    '/lib/codemirror.css'
+  = stylesheet_link_tag    '/theme/solarized.css'
   = csrf_meta_tags
 body
-nav.navbar.navbar-default
-  .container-fluid
-    .navbar-header
-      = link_to "Khode Academy", root_path, class: 'navbar-brand'
-    ul.nav.navbar-nav
-      li
-        = link_to "Lessons", lessons_path
-    ul.nav.navbar-nav.navbar-right
-      li
-        - if user_signed_in?
-          - if current_user.name.empty?
-            = link_to current_user.email, '#'
+  nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        = link_to "Khode Academy", root_path, class: 'navbar-brand'
+      ul.nav.navbar-nav
+        li
+          = link_to "Lessons", lessons_path
+      ul.nav.navbar-nav.navbar-right
+        li
+          - if user_signed_in?
+            - if current_user.name.empty?
+              = link_to current_user.email, '#'
+            - else
+              = link_to current_user.name, '#'
           - else
-            = link_to current_user.name, '#'
-        - else
-          = link_to "Sign In", new_user_session_path
-.container
-  = yield
+            = link_to "Sign In", new_user_session_path
+  .container
+    = yield
+  = javascript_include_tag '/ruby.js'
+  = javascript_include_tag '/lib/codemirror.js'
+  = javascript_include_tag '/mode/javascript/javascript.js'
+  = javascript_include_tag '/mode/ruby/ruby.js'
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
