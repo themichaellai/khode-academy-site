@@ -2,12 +2,14 @@ class RubyEngine
   constructor: ->
     Ruby.initialize(null, @out, @error)
 
+  # returns [val:String, latestOutput:string]
+  # val is string of returned value from #eval call
+  # latestOutput is anything written to stdout in #eval call
   eval: (code) ->
     try
       val = Ruby.eval(code)
     @readBuffer()
-    console.log(@latestOutput) if @latestOutput
-    console.log Ruby.stringify val
+    [Ruby.stringify(val), @latestOutput]
 
   out: (character) =>
     @buffer.push(String.fromCharCode(character)) if character?
