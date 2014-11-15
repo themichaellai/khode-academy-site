@@ -14,7 +14,13 @@ window.onload = ->
     lineWrapping: false
     lineNumbers: true
   )
-  myCodeMirror.setSize 800, null
+  # Following line converts tab characters to spaces:
+  myCodeMirror.setOption "extraKeys",
+    Tab: (cm) ->
+      spaces = Array(cm.getOption("indentUnit") + 1).join(" ")
+      cm.replaceSelection spaces
+      return
+  myCodeMirror.setSize null, null
   document.getElementById("printButton").onclick = ->
     user_code = myCodeMirror.getValue()
     [val, output] = RubyEngine.eval(user_code)
