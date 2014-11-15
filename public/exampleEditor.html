@@ -24,6 +24,15 @@
             lineWrapping: false,
             lineNumbers: true
           });
+
+        // Following line converts tab characters to spaces:
+        myCodeMirror.setOption("extraKeys", {
+          Tab: function(cm) {
+            var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+            cm.replaceSelection(spaces);
+          }
+        });
+        
         myCodeMirror.setSize(800, null);
         
         document.getElementById("printButton").onclick = function() {
