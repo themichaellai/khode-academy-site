@@ -1,0 +1,4 @@
+.row
+  .col-sm-12
+    h1= "Editing \"#{@lesson.title}\""
+    = render partial: 'partials/lesson_form', locals: {lesson: @lesson}

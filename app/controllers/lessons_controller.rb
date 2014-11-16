@@ -24,6 +24,19 @@ class LessonsController < ApplicationController
     render layout: 'lessons'
   end
 
+  def edit
+    @lesson = Lesson.find(params[:id])
+  end
+
+  def update
+    @lesson = Lesson.find(params[:id])
+    if @lesson.update(lesson_params)
+      redirect_to @lesson
+    else
+      render 'edit'
+    end
+  end
+
   private
   def lesson_params
     params.require(:lesson).permit(
