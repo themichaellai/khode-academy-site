@@ -1,4 +1,6 @@
-$bg-hover-color: #eee;
+$bg-hover-color: #efefef;
+
+$light-border: 1px solid #ddd;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -6,3 +8,6 @@ $bg-hover-color: #eee;
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
+
+// bootstrap overrides
+$navbar-default-bg: #fff;
