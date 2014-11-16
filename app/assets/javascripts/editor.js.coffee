@@ -33,6 +33,30 @@ window.onload = ->
       cm.replaceSelection spaces
       return
   window.myCodeMirror.setSize null, null
+  if document.getElementById("printButton")
+    document.getElementById("printButton").onclick = ->
+      user_code = window.myCodeMirror.getValue()
+      data = {
+        user_code: user_code
+        class_name: "Asdf"
+        cases: [
+          {
+            name: "faile me",
+            code: "1 + 1 == 2"
+          }
+        ]
+      }
+      $.ajax(
+        url: '/check/ruby'
+        data: JSON.stringify(data)
+        type: 'POST'
+        contentType: 'application/json'
+      )
+      .done (res) ->
+        console.log('res', res)
+      .fail (e) ->
+        console.log(e)
+      return
 
   return
 
