@@ -1,4 +1,4 @@
-= simple_form_for lesson, html: {class: 'form-horizontal', role: :form} do |f|
+= simple_form_for lesson, html: {id: 'lesson-form', class: 'form-horizontal', role: :form} do |f|
   .form-group
     = f.label :title, class: 'col-sm-2 control-label'
     .col-sm-10
@@ -21,8 +21,10 @@
 
   .form-group
     = f.label :boilerplate_code, class: 'col-sm-2 control-label'
+    .code-editor
+      textarea#codeBox
     .col-sm-10
-      = f.input_field :boilerplate_code, as: :text, class: 'form-control'
+      = f.input_field :boilerplate_code, as: :hidden, class: 'form-control'
 
   .form-group
     .col-sm-10.col-sm-offset-2
