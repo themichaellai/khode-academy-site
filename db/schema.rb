@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141116091356) do
+ActiveRecord::Schema.define(version: 20141116105710) do
 
   create_table "lesson_modules", force: true do |t|
     t.string   "title"
     t.string   "teaser"
     t.string   "description"
     t.string   "language"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lesson_progresses", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "lesson_id"
+    t.boolean  "completed",  default: false
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
