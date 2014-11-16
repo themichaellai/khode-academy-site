@@ -1,0 +1,11 @@
+- run tests when submitting code
+- lesson progress
+- style suggestions:
+  - Instructions could have a label
+  - Include a note to reminder users to have an // insert code here section
+  - have descriptive labels when creating tests
+    - [expect]   [arg_a] to be [arg_b]
+    - [regex]   /[arg_a]/
+    - [output]   matches [arg_a]
+  - be able to edit lessons, including editing tests
+  - support javascript (prolly not gonna happen)
