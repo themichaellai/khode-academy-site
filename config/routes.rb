@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :lessons, only: [:show] do
     post 'complete', controller: :lesson_progresses, action: :complete
+    put 'update_progress'
   end
 
   resources :lesson_modules, path: :modules do

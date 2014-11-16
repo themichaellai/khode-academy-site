@@ -5,10 +5,24 @@ getFailures = (text) ->
   match = /Failures:([\s\S]*?)Finished/gm.exec(text)
   match[1].trim()
 
+update_progress = _.debounce( ->
+  user_code = window.myCodeMirror.getValue()
+  $.ajax(
+    url: document.location.pathname + '/update_progress'
+    data: JSON.stringify(
+      code: user_code
+    )
+    type: 'PUT'
+    contentType: 'application/json'
+  ).done ->
+    console.log('updated code')
+, 3000)
+
 window.myCodeMirror = undefined
 if ! window.onload
   window.onload = -> 
     return 
+
 fun = window.onload
 window.onload = ->
   fun()
@@ -66,5 +80,8 @@ window.onload = ->
       .fail (e) ->
         console.log(e)
       return
+
+  $(this).keypress (e) ->
+    update_progress()
 
   return

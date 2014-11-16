@@ -1,6 +1,9 @@
-- boil = raw @lesson.boilerplate_code
-- puts boil
-- completed = @progress.completed || false
+- if defined? @progress
+  - boil = raw @progress.code
+  - completed = @progress.completed
+- else
+  - boil = raw @lesson.boilerplate_code
+  - completed = false
 javascript:
   window.boilerplate_code = "#{escape_javascript boil}";
   window.tests = JSON.parse('#{@lesson.tests.to_json.html_safe}')

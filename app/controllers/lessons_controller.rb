@@ -51,6 +51,21 @@ class LessonsController < ApplicationController
     end
   end
 
+  def update_progress
+    if user_signed_in?
+      @lesson = Lesson.find(params[:lesson_id])
+      progresses = LessonProgress.where(user: current_user, lesson: @lesson).limit(1)
+      if progresses.length == 0
+        @progress = LessonProgress.new(user: current_user, lesson: @lesson, code: params[:code])
+        @progress.save
+      else
+        @progress = progresses.first
+        @progress.update_attribute(:code, params[:code])
+      end
+    end
+    render text: 'ok'
+  end
+
   private
   def lesson_params
     params.require(:lesson).permit(
