@@ -44,12 +44,7 @@ window.onload = ->
       data = {
         user_code: user_code
         class_name: "Asdf"
-        cases: [
-          {
-            name: "faile me",
-            code: "1 + 1 == 3"
-          }
-        ]
+        cases: window.tests
       }
       $.ajax(
         url: '/check/ruby'

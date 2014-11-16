@@ -2,6 +2,7 @@
 - puts boil
 javascript:
   window.boilerplate_code = "#{escape_javascript boil}";
+  window.tests = JSON.parse('#{@lesson.tests.to_json.html_safe}')
 .row
   .col-sm-4
     .lesson-explanation
