@@ -1,0 +1,12 @@
+.row
+  .col-sm-12
+    .text-centered
+      h1.page-title Modules
+    - @lesson_modules.each_slice(3) do |slice|
+      .row
+        - slice.each do |lesson_module|
+          .col-sm-4
+            .lesson-box
+              a href=lesson_path(lesson_module)
+                h2= lesson_module.title
+                p= lesson_module.teaser

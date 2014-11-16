@@ -1,0 +1,24 @@
+= simple_form_for lesson_module, html: {class: 'form-horizontal', role: :form} do |f|
+  .form-group
+    = f.label :title, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.input_field :title, size: 25, class: 'form-control'
+
+  .form-group
+    = f.label :teaser, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.input_field :teaser, size: 25, class: 'form-control'
+
+  .form-group
+    = f.label :description, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.input_field :description, size: 25, class: 'form-control'
+
+  .form-group
+    = f.label :language, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.input_field :language, size: 25, class: 'form-control'
+
+  .form-group
+    .col-sm-10.col-sm-offset-2
+      = f.button :submit, class: 'btn btn-primary'
