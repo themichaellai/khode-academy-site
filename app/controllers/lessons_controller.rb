@@ -4,6 +4,12 @@ class LessonsController < ApplicationController
   def index
     @lesson_module = LessonModule.find(params[:lesson_module_id])
     @lessons = @lesson_module.lessons
+    if user_signed_in?
+      progresses = LessonProgress.where(lesson_id: @lessons.map(&:id))
+      @progresses_map = Hash[*progresses.map { |p| [p.lesson.id, p] }.flatten]
+    else
+      @progresses_map = {}
+    end
   end
 
   def show

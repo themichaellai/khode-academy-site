@@ -13,5 +13,8 @@
           .col-sm-4
             .lesson-box
               a href=lesson_path(lesson)
-                h2= lesson.title
+                h2
+                  = lesson.title
+                  - if @progresses_map.has_key?(lesson.id) and @progresses_map[lesson.id].completed
+                    span.glyphicon.glyphicon-ok.completed(title="Completed!")
                 p= lesson.description
