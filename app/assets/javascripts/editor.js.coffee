@@ -33,13 +33,6 @@ window.onload = ->
       cm.replaceSelection spaces
       return
   window.myCodeMirror.setSize null, null
-  if document.getElementById("printButton")
-    document.getElementById("printButton").onclick = ->
-      user_code = window.myCodeMirror.getValue()
-      [val, output] = RubyEngine.eval(user_code)
-      console.log val
-      console.log output if output
-      return
 
   return
 
