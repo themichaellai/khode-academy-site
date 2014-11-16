@@ -15,3 +15,15 @@
 .page-title {
   margin-bottom: 30px;
 }
+
+nav {
+  .container {
+    margin-top: 0px;
+  }
+  .profile-pic {
+    margin-right: 10px;
+    img {
+      @include border-radius(11px);
+    }
+  }
+}

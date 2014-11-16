@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 module ApplicationHelper
   def markdown(text)
     render_options = {
@@ -42,5 +44,11 @@ module ApplicationHelper
       # space_after_headers: true
     }
     Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
+  end
+
+  def gravatar_url(email, options={})
+    digest = Digest::MD5.hexdigest(email)
+    options.merge!({d: :identicon})
+    "//www.gravatar.com/avatar/#{digest}?#{options.to_query}"
   end
 end
