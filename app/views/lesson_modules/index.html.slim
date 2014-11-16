@@ -7,6 +7,6 @@
         - slice.each do |lesson_module|
           .col-sm-4
             .lesson-box
-              a href=lesson_path(lesson_module)
+              a href=lesson_module_lessons_path(lesson_module)
                 h2= lesson_module.title
                 p= lesson_module.teaser

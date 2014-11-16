@@ -2,7 +2,8 @@ class LessonsController < ApplicationController
   layout 'application'
 
   def index
-    @lessons = Lesson.all
+    @lesson_module = LessonModule.find(params[:lesson_module_id])
+    @lessons = @lesson_module.lessons
   end
 
   def show
@@ -11,7 +12,8 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @lesson = Lesson.new(lesson_params)
+    @lesson_module = LessonModule.find(params[:lesson_module_id])
+    @lesson = @lesson_module.lessons.build(lesson_params)
     if @lesson.save
       redirect_to lesson_path(@lesson)
     else
@@ -20,7 +22,7 @@ class LessonsController < ApplicationController
   end
 
   def new
-    @lesson = Lesson.new
+    @lesson = @lesson_module.lessons.build
     render layout: 'lessons'
   end
 

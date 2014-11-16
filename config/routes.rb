@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :lessons
-  resources :lesson_modules, path: :modules
+
+  resources :lesson_modules, path: :modules do
+    resources :lessons
+  end
 end
