@@ -12,5 +12,11 @@ javascript:
       .instructions
         = markdown @lesson.instructions
   .col-sm-8
-    .code-editor
-      textarea#codeBox
+    .row
+      .col-sm-12
+        .code-editor
+          textarea#codeBox
+        button#printButton Print
+    .row
+      .col-sm-12
+        pre.output

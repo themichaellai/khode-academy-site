@@ -1,6 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+didPass = (text) ->
+  /0 failures/.test(text)
+
+getFailures = (text) ->
+  match = /Failures:([\s\S]*?)Finished/gm.exec(text)
+  match[1].trim()
+
 window.myCodeMirror = undefined
 if ! window.onload
   window.onload = -> 
@@ -33,7 +37,32 @@ window.onload = ->
       cm.replaceSelection spaces
       return
   window.myCodeMirror.setSize null, null
+  if document.getElementById("printButton")
+    document.getElementById("printButton").onclick = ->
+      user_code = window.myCodeMirror.getValue()
+      data = {
+        user_code: user_code
+        class_name: "Asdf"
+        cases: [
+          {
+            name: "faile me",
+            code: "1 + 1 == 3"
+          }
+        ]
+      }
+      $.ajax(
+        url: '/check/ruby'
+        data: JSON.stringify(data)
+        type: 'POST'
+        contentType: 'application/json'
+      )
+      .done (res) ->
+        if didPass(res)
+          console.log('passed')
+        else
+          $('.output').text(getFailures(res))
+      .fail (e) ->
+        console.log(e)
+      return
 
   return
-
-  
