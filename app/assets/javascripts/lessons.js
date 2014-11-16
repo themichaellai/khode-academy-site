@@ -3,3 +3,4 @@
 //= require bootstrap-sprockets
 //= require markdown
 //= require editor
+//= require nestedForms

@@ -29,7 +29,21 @@
       textarea#codeBox
     .col-sm-10
       = f.input_field :boilerplate_code, as: :hidden, class: 'form-control'
-
+  h3 Tests
+  #tests
+    = f.simple_fields_for :tests, html: {class: 'form-inline'} do |t|
+      .duplicatable_nested_form
+        .nested-fields.row
+          .col-sm-3
+            = t.input :name
+          .col-sm-3
+            = t.input :test_type, collection: [:expect, :regex, :output], default: :expect
+          .col-sm-3
+            = t.input :arg_a, label: false, as: :text
+          .col-sm-3
+            = t.input :arg_b, label: false, as: :text
+          = t.input :id, as: :hidden
+    = link_to 'Add Another Test', '#', :class => 'duplicate_nested_form'
   .form-group
     .col-sm-10.col-sm-offset-2
       = f.button :submit, class: 'btn btn-primary'

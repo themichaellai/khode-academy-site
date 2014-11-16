@@ -24,6 +24,8 @@ class LessonsController < ApplicationController
   def new
     @lesson_module = LessonModule.find(params[:lesson_module_id])
     @lesson = @lesson_module.lessons.build
+    @lesson.tests.build
+
     render layout: 'lessons'
   end
 
@@ -47,7 +49,8 @@ class LessonsController < ApplicationController
       :description,
       :lesson_text,
       :instructions,
-      :boilerplate_code
+      :boilerplate_code,
+      tests_attributes: [:id, :name, :arg_a, :arg_b, :test_type]
     )
   end
 end
