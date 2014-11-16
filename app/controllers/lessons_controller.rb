@@ -22,6 +22,7 @@ class LessonsController < ApplicationController
   end
 
   def new
+    @lesson_module = LessonModule.find(params[:lesson_module_id])
     @lesson = @lesson_module.lessons.build
     render layout: 'lessons'
   end

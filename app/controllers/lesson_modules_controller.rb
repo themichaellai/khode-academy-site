@@ -26,7 +26,7 @@ class LessonModulesController < ApplicationController
       :title,
       :teaser,
       :description,
-      :languagae
+      :language
     )
   end
 end
