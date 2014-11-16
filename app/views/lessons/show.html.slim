@@ -3,7 +3,7 @@
 javascript:
   window.boilerplate_code = "#{escape_javascript boil}";
 .row
-  .col-sm-3
+  .col-sm-4
     .lesson-explanation
       .lesson-header
         h1= @lesson.title
@@ -11,7 +11,7 @@ javascript:
         = markdown @lesson.lesson_text
       .instructions
         = markdown @lesson.instructions
-  .col-sm-9
+  .col-sm-8
     .code-editor
       textarea#codeBox
     button#printButton Print

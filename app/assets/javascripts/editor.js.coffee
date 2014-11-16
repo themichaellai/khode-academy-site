@@ -2,10 +2,17 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 window.myCodeMirror = undefined
+if ! window.onload
+  window.onload = -> 
+    return 
+fun = window.onload
 window.onload = ->
+  fun()
   if document.getElementById("lesson-form")
     $("#lesson-form").submit (event) ->
       $("input[name=\"lesson[boilerplate_code]\"]").val window.myCodeMirror.getValue()
+      $("input[name=\"lesson[instructions]\"]").val window.mdInstruction.getContent()
+      $("input[name=\"lesson[lesson_text]\"]").val window.mdLessonText.getContent()
       return
 
   myTextArea = document.getElementById("codeBox")

@@ -444,7 +444,7 @@
           content = val;
         }
       }
-
+      this.$options.onPreview(this) // Try to get the content from callback
       return content;
     }
 
@@ -476,7 +476,6 @@
       // Set the preview element dimensions
       replacementContainer.css({
         width: container.outerWidth() + 'px',
-        height: container.outerHeight() + 'px'
       })
 
       if (this.$options.resize) {

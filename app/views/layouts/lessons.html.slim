@@ -9,8 +9,11 @@ html
     = render partial: 'partials/header'
     .container
       = yield
+    // = javascript_include_tag '/ruby.js'
+    = javascript_include_tag 'lessons'
     = javascript_include_tag '/lib/codemirror.js'
+    = javascript_include_tag '/js/markdown.js'
+    = javascript_include_tag '/js/to-markdown.js'
+    = javascript_include_tag '/js/bootstrap-markdown.js'
     = javascript_include_tag '/mode/javascript/javascript.js'
     = javascript_include_tag '/mode/ruby/ruby.js'
-    = javascript_include_tag '/ruby.js'
-    = javascript_include_tag 'lessons'
