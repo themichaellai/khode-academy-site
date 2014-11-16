@@ -9,10 +9,12 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
     if user_signed_in?
-      num_progresses = LessonProgress.where(user: current_user, lesson: @lesson).count
-      if num_progresses == 0
+      progresses = LessonProgress.where(user: current_user, lesson: @lesson).limit(1)
+      if progresses.length == 0
         @progress = LessonProgress.new(user: current_user, lesson: @lesson)
         @progress.save
+      else
+        @progress = progresses.first
       end
     end
     render layout: 'lessons'

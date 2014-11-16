@@ -1,5 +1,6 @@
 - boil = raw @lesson.boilerplate_code
 - puts boil
+- completed = @progress.completed || false
 javascript:
   window.boilerplate_code = "#{escape_javascript boil}";
   window.tests = JSON.parse('#{@lesson.tests.to_json.html_safe}')
@@ -7,7 +8,10 @@ javascript:
   .col-sm-4
     .lesson-explanation
       .lesson-header
-        h1= @lesson.title
+        h1
+          = @lesson.title
+          - if completed
+            span.glyphicon.glyphicon-ok.completed(title="Completed!")
       .lesson-text
         = markdown @lesson.lesson_text
       .instructions

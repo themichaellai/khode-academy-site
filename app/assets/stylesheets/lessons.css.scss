@@ -7,6 +7,7 @@
 
   .lesson-header {
     border-bottom: $light-border;
+    margin-bottom: 20px;
   }
 }
 
@@ -35,3 +36,9 @@
     background-color: $bg-hover-color;
   }
 }
+
+.completed {
+  color: rgb(0, 128, 0);
+  margin-left: 10px;
+}
+
