@@ -18,6 +18,8 @@ javascript:
           = @lesson.title
           - if completed
             span.glyphicon.glyphicon-ok.completed(title="Completed!")
+          - else
+            span.hidden.glyphicon.glyphicon-ok.completed(title="Completed!")
       .lesson-text
         = markdown @lesson.lesson_text
       .instructions
@@ -27,7 +29,7 @@ javascript:
       .col-sm-12
         .code-editor
           textarea#codeBox
-        button#printButton Print
+        button#printButton.btn.btn-primary Submit
     .row
       .col-sm-12
         pre.output

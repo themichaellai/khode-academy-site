@@ -69,6 +69,8 @@ window.onload = ->
       .done (res) ->
         if didPass(res)
           console.log 'pass'
+          $('.hidden').removeClass('hidden')
+          $('.output').text("Success!")
           $.ajax(
             url: document.location.pathname + '/complete'
             type: 'POST'
