@@ -25,6 +25,7 @@ window.onload = ->
     return
   ,
     value: window.boilerplate_code ||= ""
+    mode: "ruby"
     theme: "solarized dark"
     tabSize: 2
     lineWrapping: false
