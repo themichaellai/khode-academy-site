@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Including JQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Including bootstrap -->
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Markdown editor stuff -->
+    <link rel="stylesheet" href="css/bootstrap-markdown.min.css">
+    <script src="js/markdown.js"></script>
+    <script src="js/to-markdown.js"></script>
+    <script src="js/bootstrap-markdown.js"></script>
+
+    <script type="text/javascript">
+      var mdEditor;
+      $.ready = function() {
+        console.log("hey!");
+        $("#mdDescription").markdown({
+          onFocus: function(e) {
+            mdEditor = e;
+          }
+        });
+
+        $("#printButton").click(function() {
+          console.log(mdEditor ? mdEditor.getContent() : "");
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <textarea id="mdDescription"></textarea>
+    <button id="printButton">Print</button>
+  </body>
+</html>
+
