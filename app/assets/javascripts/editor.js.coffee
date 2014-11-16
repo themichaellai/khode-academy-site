@@ -54,7 +54,13 @@ window.onload = ->
       )
       .done (res) ->
         if didPass(res)
-          console.log('passed')
+          console.log 'pass'
+          $.ajax(
+            url: document.location.pathname + '/complete'
+            type: 'POST'
+          )
+          .done ->
+            console.log 'persisted finish'
         else
           $('.output').text(getFailures(res))
       .fail (e) ->
