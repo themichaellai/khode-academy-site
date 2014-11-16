@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :lesson_modules, path: :modules do
     resources :lessons
   end
+
+  post '/check/ruby', controller: 'check', action: 'ruby', as: :check_ruby
 end
