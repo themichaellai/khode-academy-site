@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'lessons#index'
+  root 'lesson_modules#index'
 
   devise_for :users
   resources :lessons
