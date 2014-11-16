@@ -1,5 +1,8 @@
 - if defined? @progress
-  - boil = raw @progress.code
+  - if @progress.code.nil? or @progress.code.empty?
+    - boil = raw @lesson.boilerplate_code
+  - else
+    - boil = raw @progress.code
   - completed = @progress.completed
 - else
   - boil = raw @lesson.boilerplate_code

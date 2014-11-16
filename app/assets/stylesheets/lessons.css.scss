@@ -12,7 +12,11 @@
 }
 
 .box-row {
-  padding: 20px 20px 60px;
+  padding: 20px;
+  border-bottom: $light-border;
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .lesson-box {
@@ -42,3 +46,10 @@
   margin-left: 10px;
 }
 
+a.add {
+  margin-top: 10px;
+}
+
+.md-editor, .CodeMirror {
+  padding-left: 15px;
+}

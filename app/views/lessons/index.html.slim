@@ -1,14 +1,14 @@
 .row
-  .col-sm-12.col-md-4.col-md-offset-4
+  .col-sm-12.col-md-4.col-md-offset-4.module-description
     .text-centered
       h1= @lesson_module.title
       p= @lesson_module.description
-.row.box-row
+.row
   .col-sm-12
     .text-centered
       h2.page-title Lessons
     - @lessons.each_slice(3) do |slice|
-      .row
+      .row.box-row
         - slice.each do |lesson|
           .col-sm-4
             .lesson-box
