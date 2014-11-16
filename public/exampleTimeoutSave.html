@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Including JQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      var idleTime = 0;
+      $(document).ready(function () {
+        var idleInterval = setInterval(timerIncrement, 1000); // increment idleTime every second
+
+        //Zero the idle timer on key presses
+        $(this).keypress(function (e) {
+          idleTime = 0; // restart idle counter on key movement
+        });
+      });
+
+      function timerIncrement() {
+        idleTime = idleTime + 1;
+        if (idleTime == 5) { // after 5 seconds of idling, this block is executed
+          console.log('idled');
+        }
+      }
+    </script>   
+
+    <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <textarea id="text">
+    </textarea>
+  </body>
+</html>
